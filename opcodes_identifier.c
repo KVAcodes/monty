@@ -80,8 +80,11 @@ unsigned int identify_opcode_argument(instruction_t *map, char *buffer,
 		}
 		count++;
 	}
+	ptr = ptr + strlen(map[count].opcode);
 	while (*ptr)
 	{
+		if ((*ptr =! ' ') || !(*ptr >= '0' && *ptr <= '9'))
+			break;
 		if (*ptr >= '0' && *ptr <= '9')
 		{
 			tmp = ptr;
