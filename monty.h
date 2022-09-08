@@ -79,6 +79,7 @@ void _mul(stack_t **top_pointer, unsigned int argument);
 
 /* Functions from opcode_functions_3.c */
 void _mod(stack_t **top_pointer, unsigned int argument);
+void pchar(stack_t **top_pointer, unsigned int argument);
 
 /* Function from free_stack.c */
 void free_stack(void);
@@ -102,5 +103,6 @@ void handle_insufficient_div_error(void);
 void handle_topofstackis0_div_error(void);
 void handle_insufficient_mul_error(void);
 void handle_insufficient_mod_error(void);
+void handle_ascii_error(void);
 
 #endif /* MONTY_H */

@@ -55,3 +55,16 @@ void handle_insufficient_mod_error(void)
 	fclose(global.monty_file);
 	exit(EXIT_FAILURE);
 }
+
+/**
+ * handle_ascii_error - Handles pchar's out of ascii table range error.
+ *
+ * Return: Nothing(void).
+ */
+void handle_ascii_error(void)
+{
+	fprintf(stderr, "L%d: can't pchar, value out of range\n", global.line_count);
+	free_stack();
+	fclose(global.monty_file);
+	exit(EXIT_FAILURE);
+}
