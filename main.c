@@ -18,7 +18,7 @@ int main(int argc, char **argv)
 
 	instruction_t map_to[] = {{"push", push}, {"pall", pall},
 				  {"pint", pint}, {"pop", pop},
-				  {NULL, NULL}};
+				  {"swap", swap}, {NULL, NULL}};
 	if (argc != 2)
 		handle_argc_error();
 	global.monty_file = fopen(argv[1], "r");

@@ -89,3 +89,22 @@ void pop(stack_t **top_pointer, unsigned int argument)
 	free(*top_pointer);
 	*top_pointer = tmp;
 }
+
+/**
+ * swap - swaps the top of the stack with the element beneath it.
+ * @top_pointer: Address of the global variable global.top.
+ * @argument: Unused.
+ *
+ * Return: Nothing(void).
+ */
+void swap(stack_t **top_pointer, unsigned int argument)
+{
+	int tmp;
+
+	UNUSED(argument);
+	if ((!(*top_pointer)) || (!((*top_pointer)->next)))
+		handle_insufficient_swap_error();
+	tmp = (*top_pointer)->n;
+	(*top_pointer)->n = (*top_pointer)->next->n;
+	(*top_pointer)->next->n = tmp;
+}

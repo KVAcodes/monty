@@ -23,3 +23,16 @@ void handle_pop_stack_empty_error(void)
 	fclose(global.monty_file);
 	exit(EXIT_FAILURE);
 }
+
+/**
+ * handle_insufficient_swap_error - Handles swap's less than 2
+ *				    elements error.
+ * Return: Nothing(void).
+ */
+void handle_insufficient_swap_error(void)
+{
+	fprintf(stderr, "L%d: can't swap, stack too short\n", global.line_count);
+	free_stack();
+	fclose(global.monty_file);
+	exit(EXIT_FAILURE);
+}

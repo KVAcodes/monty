@@ -67,6 +67,9 @@ void push(stack_t **top_pointer, unsigned int number);
 void pall(stack_t **top_pointer, unsigned int argument);
 void pint(stack_t **top_pointer, unsigned int argument);
 void pop(stack_t **top_pointer, unsigned int argument);
+void swap(stack_t **top_pointer, unsigned int argument);
+
+/* Functions from opcode_functions_2.c */
 
 /* Function from free_stack.c */
 void free_stack(void);
@@ -81,5 +84,7 @@ void handle_isnotint_error(char *opcode);
 /* Functions from error_functions_2.c */
 void handle_pint_stack_empty_error(void);
 void handle_pop_stack_empty_error(void);
+void handle_insufficient_swap_error(void);
+
 
 #endif /* MONTY_H */
