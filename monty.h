@@ -57,7 +57,7 @@ extern global_t global;
 typedef void (*func_pointer)(stack_t **stack, unsigned int line_number);
 
 
-/* Functions from opcodes_identifier.c */
+/* Functions from opcodes_identifiers.c */
 func_pointer identify_opcode(instruction_t * map, char *buffer);
 unsigned int identify_opcode_argument(instruction_t * map, char *buffer);
 char *invalid_opcode_flag(char *buffer);
@@ -70,6 +70,7 @@ void pop(stack_t **top_pointer, unsigned int argument);
 void swap(stack_t **top_pointer, unsigned int argument);
 
 /* Functions from opcode_functions_2.c */
+void add(stack_t **top_pointer, unsigned int argument);
 
 /* Function from free_stack.c */
 void free_stack(void);
@@ -85,6 +86,7 @@ void handle_isnotint_error(char *opcode);
 void handle_pint_stack_empty_error(void);
 void handle_pop_stack_empty_error(void);
 void handle_insufficient_swap_error(void);
+void handle_insufficient_add_error(void);
 
 
 #endif /* MONTY_H */
