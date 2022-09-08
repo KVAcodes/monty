@@ -71,6 +71,7 @@ void swap(stack_t **top_pointer, unsigned int argument);
 
 /* Functions from opcode_functions_2.c */
 void add(stack_t **top_pointer, unsigned int argument);
+void nop(stack_t **top_pointer, unsigned int argument);
 
 /* Function from free_stack.c */
 void free_stack(void);

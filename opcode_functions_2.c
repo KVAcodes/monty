@@ -18,3 +18,15 @@ void add(stack_t **top_pointer, unsigned int argument)
 	(*top_pointer)->n = sum;
 }
 
+/**
+ * nop - doesn't do anything.
+ * @top_pointer: The address of the global variable global.top.
+ * @argument: Unused.
+ *
+ * Return: Nothing(void).
+ */
+void nop(stack_t **top_pointer, unsigned int argument)
+{
+	UNUSED(top_pointer);
+	UNUSED(argument);
+}
