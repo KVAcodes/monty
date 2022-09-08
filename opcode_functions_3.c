@@ -33,7 +33,7 @@ void pchar(stack_t **top_pointer, unsigned int argument)
 	int value = (*top_pointer)->n;
 	
 	UNUSED(argument);
-	if (!(value >= 0 && value <= 127))
+	if (!(value >= 32 && value <= 126))
 		handle_ascii_error();
 	printf("%c\n", value);
 }
