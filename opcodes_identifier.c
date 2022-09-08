@@ -72,7 +72,7 @@ unsigned int identify_opcode_argument(instruction_t *map, char *buffer)
 		ptr = strstr(buffer, map[count].opcode);
 		if (ptr)
 		{
-			if (strcmp("pall", map[count].opcode) == 0)
+			if (strstr("pallpint", map[count].opcode))
 				return (0);
 			break;
 		}

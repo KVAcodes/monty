@@ -1,9 +1,8 @@
 #include "monty.h"
-#define UNUSED(x) (void)(x)
 
 /**
  * push - Pushes an element to the top(beginning) of the stack_t list.
- * @top_pointer: Address of the global variable top.
+ * @top_pointer: Address of the global variable global.top.
  * @number: Integer to be pushed to stack.
  *
  * Return: Nothing(void).
@@ -31,7 +30,7 @@ void push(stack_t **top_pointer, unsigned int number)
 /**
  * pall - Prints all the values on the stack_t list, starting from
  * the top of the stack.
- * @top_pointer: Address of the global variable top.
+ * @top_pointer: Address of the global variable global.top.
  * @argument: Unused.
  *
  * Return: Nothing(void).
@@ -48,4 +47,19 @@ void pall(stack_t **top_pointer, unsigned int argument)
 		printf("%u\n", ptr->n);
 		ptr = ptr->next;
 	}
+}
+
+/**
+ * pint - Prints the value at the top of the stack.
+ * @top_pointer: Address of the global variable global.top.
+ * @argument: Unused.
+ *
+ * Return: Nothing(void).
+ */
+void pint(stack_t **top_pointer, unsigned int argument)
+{
+	UNUSED(argument);
+	if (!(*top_pointer))
+		handle_stack_empty_error();
+	printf("%d\n", (*top_pointer)->n);
 }

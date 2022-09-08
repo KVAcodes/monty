@@ -5,6 +5,9 @@
 #include <stdlib.h>
 #include <string.h>
 #include <unistd.h>
+
+#define UNUSED(x) (void)(x)
+
 /**
  * struct stack_s - doubly linked list representation of a stack (or queue)
  * @n: integer
@@ -62,6 +65,7 @@ char *invalid_opcode_flag(char *buffer);
 /* Functions from opcode_functions.c */
 void push(stack_t **top_pointer, unsigned int number);
 void pall(stack_t **top_pointer, unsigned int argument);
+void pint(stack_t **top_pointer, unsigned int argument);
 
 /* Function from free_stack.c */
 void free_stack(void);
@@ -72,6 +76,9 @@ void handle_fopen_error(char *file_name);
 void handle_invalid_instruction_error(char *invalid_opcode);
 void handle_malloc_error(void);
 void handle_isnotint_error(char *opcode);
+
+/* Functions from error_functions_2.c */
+void handle_stack_empty_error(void);
 
 
 #endif /* MONTY_H */
