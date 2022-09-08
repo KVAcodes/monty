@@ -51,3 +51,16 @@ void handle_insufficient_add_error(void)
 	fclose(global.monty_file);
 	exit(EXIT_FAILURE);
 }
+/**
+ * handle_insufficient_sub_error - Handles sub's less than two
+ *				   elements error.
+ *
+ * Return: Nothing(void).
+ */
+void handle_insufficient_sub_error(void)
+{
+	fprintf(stderr, "L%d: can't sub, stack too short\n", global.line_count);
+	free_stack();
+	fclose(global.monty_file);
+	exit(EXIT_FAILURE);
+}

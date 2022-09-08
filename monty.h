@@ -72,6 +72,7 @@ void swap(stack_t **top_pointer, unsigned int argument);
 /* Functions from opcode_functions_2.c */
 void add(stack_t **top_pointer, unsigned int argument);
 void nop(stack_t **top_pointer, unsigned int argument);
+void sub(stack_t **top_pointer, unsigned int argument);
 
 /* Function from free_stack.c */
 void free_stack(void);
@@ -88,6 +89,8 @@ void handle_pint_stack_empty_error(void);
 void handle_pop_stack_empty_error(void);
 void handle_insufficient_swap_error(void);
 void handle_insufficient_add_error(void);
+void handle_insufficient_sub_error(void);
 
+/* Functions from error_functions_3.c */
 
 #endif /* MONTY_H */
