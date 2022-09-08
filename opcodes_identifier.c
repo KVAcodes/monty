@@ -83,7 +83,7 @@ unsigned int identify_opcode_argument(instruction_t *map, char *buffer,
 	ptr = ptr + strlen(map[count].opcode);
 	while (*ptr)
 	{
-		if ((*ptr =! ' ') || !(*ptr >= '0' && *ptr <= '9'))
+		if (!strchr(" 0123456789", *ptr))
 			break;
 		if (*ptr >= '0' && *ptr <= '9')
 		{
