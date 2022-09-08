@@ -51,14 +51,14 @@ void sub(stack_t **top_pointer, unsigned int argument)
 }
 
 /**
- * div - divides the second top element of the stack by the top
+ * _div - divides the second top element of the stack by the top
  *	 element of the stack.
  * @top_pointer: The address of the global variable global.top.
  * @argument: Unused.
  *
  * Return: Nothing(void)
  */
-void div(stack_t **top_pointer, unsigned int argument)
+void _div(stack_t **top_pointer, unsigned int argument)
 {
 	int quotient;
 
