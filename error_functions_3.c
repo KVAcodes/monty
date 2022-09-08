@@ -41,3 +41,17 @@ void handle_insufficient_mul_error(void)
 	fclose(global.monty_file);
 	exit(EXIT_FAILURE);
 }
+
+/**
+ * handle_insufficient_mod_error - Handles mod's less than two
+ *				   elements error.
+ *
+ * Return: Nothing(void).
+ */
+void handle_insufficient_mod_error(void)
+{
+	fprintf(stderr, "L%d: can't mod, stack too short\n", global.line_count);
+	free_stack();
+	fclose(global.monty_file);
+	exit(EXIT_FAILURE);
+}
