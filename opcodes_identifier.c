@@ -35,7 +35,7 @@ func_pointer identify_opcode(instruction_t *map, char *buffer)
 char *invalid_opcode_flag(char *buffer)
 {
 	char *ptr, *tmp;
-	char *symbols = "' !\"#$%&\'()*+,-./0123456789:;<=>?@AB\
+	char *symbols = "'!\"#$%&\'()*+,-./0123456789:;<=>?@AB\
 CDEFGHIJKLMNOPQRSTUVWXYZ[]^_`abcdefghijklmnopqrstuvwxyz{|}~'";
 
 	ptr = strpbrk(buffer, symbols);
