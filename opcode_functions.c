@@ -60,6 +60,32 @@ void pint(stack_t **top_pointer, unsigned int argument)
 {
 	UNUSED(argument);
 	if (!(*top_pointer))
-		handle_stack_empty_error();
+		handle_pint_stack_empty_error();
 	printf("%d\n", (*top_pointer)->n);
+}
+
+/**
+ * pop - Removes the top element of the stack.
+ * @top_pointer: Address of the global variable global.top.
+ * @argument: Unused.
+ *
+ * Return: Nothing(void).
+ */
+void pop(stack_t **top_pointer, unsigned int argument)
+{
+	stack_t *tmp = NULL;
+
+	UNUSED(argument);
+	if (!(*top_pointer))
+		handle_pop_stack_empty_error();
+	if (!((*top_pointer)->next))
+	{
+		free(*top_pointer);
+		*top_pointer = NULL;
+		return;
+	}
+	tmp = (*top_pointer)->next;
+	tmp->prev = NULL;
+	free(*top_pointer);
+	*top_pointer = tmp;
 }
