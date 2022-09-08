@@ -1,6 +1,6 @@
 #include "monty.h"
 
-stack_t *top = NULL;
+global_t global = {NULL, 1, NULL};
 
 /**
  * main - The main function for the Monty Interpreter program.
@@ -12,44 +12,33 @@ stack_t *top = NULL;
  */
 int main(int argc, char **argv)
 {
-	FILE *monty_file;
 	char buffer[128], *invalid_opcode;
 	func_pointer opcode;
-	unsigned int argument, line_count = 1;
+	unsigned int argument;
 
 	instruction_t map_to[] = {{"push", push}, {"pall", pall},
 				{NULL, NULL}};
 	if (argc != 2)
-	{
-		fprintf(stderr, "USAGE: monty file\n");
-		exit(EXIT_FAILURE);
-	}
-	monty_file = fopen(argv[1], "r");
-	if (!monty_file)
-	{
-		fprintf(stderr, "Error: Can't open file %s\n", argv[1]);
-		exit(EXIT_FAILURE);
-	}
-	while (fgets(buffer, sizeof(buffer), monty_file))
+		handle_argc_error();
+	global.monty_file = fopen(argv[1], "r");
+	if (!global.monty_file)
+		handle_fopen_error(argv[1]);
+	while (fgets(buffer, sizeof(buffer), global.monty_file))
 	{
 		opcode = identify_opcode(map_to, buffer);
 		if (opcode)
-			argument = identify_opcode_argument(map_to, buffer, line_count);
+			argument = identify_opcode_argument(map_to, buffer);
 		else
 		{
 			invalid_opcode = invalid_opcode_flag(buffer);
 			if (invalid_opcode)
-			{
-				fprintf(stderr, "L%u: unknown instruction %s\n",
-						line_count, invalid_opcode);
-				exit(EXIT_FAILURE);
-			}
+				handle_invalid_instruction_error(invalid_opcode);
 			continue;
 		}
-		opcode(&top, argument);
-		line_count++;
+		opcode(&global.top, argument);
+		(global.line_count)++;
 	}
-	fclose(monty_file);
+	fclose(global.monty_file);
 	free_stack();
 	exit(EXIT_SUCCESS);
 }

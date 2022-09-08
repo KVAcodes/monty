@@ -7,12 +7,12 @@
  */
 void free_stack(void)
 {
-	stack_t *tmp = top;
+	stack_t *tmp = global.top;
 
-	while (top)
+	while (global.top)
 	{
-		tmp = top->next;
-		free(top);
-		top = tmp;
+		tmp = global.top->next;
+		free(global.top);
+		global.top = tmp;
 	}
 }

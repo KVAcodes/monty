@@ -57,13 +57,11 @@ CDEFGHIJKLMNOPQRSTUVWXYZ[]^_`abcdefghijklmnopqrstuvwxyz{|}~'";
  * @map: An array of instruction_t objects containing opcodes
  *	 and the their corresponding functions.
  * @buffer: An array of characters gotten from the monty_file.
- * @line_count: The current Line being executed in the monty file
  *
  * Return: The first integer argument found if not dealing with
  *	   the (pall) opcode, Otherwise 0 if dealing with the (pall).
  */
-unsigned int identify_opcode_argument(instruction_t *map, char *buffer,
-		unsigned int line_count)
+unsigned int identify_opcode_argument(instruction_t *map, char *buffer)
 {
 	unsigned int count;
 	char *ptr, *tmp = NULL;
@@ -96,11 +94,7 @@ unsigned int identify_opcode_argument(instruction_t *map, char *buffer,
 		}
 		ptr++;
 	}
-
 	if (!tmp)
-	{
-		fprintf(stderr, "L%d: usage: %s integer\n", line_count, map[count].opcode);
-		exit(EXIT_FAILURE);
-	}
+		handle_isnotint_error(map[count].opcode);
 	return (atoi(tmp));
 }

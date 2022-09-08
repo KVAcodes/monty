@@ -35,17 +35,43 @@ typedef struct instruction_s
 	void (*f)(stack_t **stack, unsigned int line_number);
 } instruction_t;
 
-extern stack_t *top;
+/**
+ * struct global - global variables.
+ * @monty_file: The file pointer of the monty file.
+ * @line_count: The current line being executed in the monty file. 
+ * @top: The top of the stack.
+ *
+ * Description: global variable object.
+ */
+typedef struct global
+{
+	FILE *monty_file;
+	unsigned int line_count;
+	stack_t *top;
+} global_t;
+
+extern global_t global;
 typedef void (*func_pointer)(stack_t **stack, unsigned int line_number);
+
 
 /* Functions from opcodes_identifier.c */
 func_pointer identify_opcode(instruction_t * map, char *buffer);
-unsigned int identify_opcode_argument(instruction_t * map, char *buffer, unsigned int line_count);
+unsigned int identify_opcode_argument(instruction_t * map, char *buffer);
 char *invalid_opcode_flag(char *buffer);
+
 /* Functions from opcode_functions.c */
 void push(stack_t **top_pointer, unsigned int number);
 void pall(stack_t **top_pointer, unsigned int argument);
+
 /* Function from free_stack.c */
 void free_stack(void);
+
+/* Functions from error_functions.c */
+void handle_argc_error(void);
+void handle_fopen_error(char *file_name);
+void handle_invalid_instruction_error(char *invalid_opcode);
+void handle_malloc_error(void);
+void handle_isnotint_error(char *opcode);
+
 
 #endif /* MONTY_H */
