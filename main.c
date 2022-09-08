@@ -27,6 +27,8 @@ int main(int argc, char **argv)
 		handle_fopen_error(argv[1]);
 	while (fgets(buffer, sizeof(buffer), global.monty_file))
 	{
+		if (is_comment(buffer))
+			continue;
 		opcode = identify_opcode(map_to, buffer);
 		if (opcode)
 			argument = identify_opcode_argument(map_to, buffer);

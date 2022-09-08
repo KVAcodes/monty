@@ -99,3 +99,25 @@ unsigned int identify_opcode_argument(instruction_t *map, char *buffer)
 		handle_isnotint_error(map[count].opcode);
 	return (atoi(tmp));
 }
+
+/**
+ * is_comment - Checks if a line in the monty_file is commented.
+ * @buffer: The line to check.
+ *
+ * Return: 1 if Line is commented Otherwise 0.
+ */
+int is_comment(char *buffer)
+{
+	while (buffer)
+	{
+		if ((*buffer != ' ') && (*buffer != '#'))
+			return (0);
+		if (*buffer == '#')
+		{
+			(global.line_count)++;
+			return (1);
+		}
+		buffer++;
+	}
+	return (0);
+}

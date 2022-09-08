@@ -61,6 +61,7 @@ typedef void (*func_pointer)(stack_t **stack, unsigned int line_number);
 func_pointer identify_opcode(instruction_t * map, char *buffer);
 unsigned int identify_opcode_argument(instruction_t * map, char *buffer);
 char *invalid_opcode_flag(char *buffer);
+int is_comment(char *buffer);
 
 /* Functions from opcode_functions.c */
 void push(stack_t **top_pointer, unsigned int number);
