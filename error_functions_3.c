@@ -28,3 +28,16 @@ void handle_topofstackis0_div_error(void)
 	exit(EXIT_FAILURE);
 }
 
+/**
+ * handle_insufficient_mul_error - Handles mul's less than two
+ *				   elements error.
+ *
+ * Return: Nothing(void).
+ */
+void handle_insufficient_mul_error(void)
+{
+	fprintf(stderr, "L%d: can't mul, stack too short\n", global.line_count);
+	free_stack();
+	fclose(global.monty_file);
+	exit(EXIT_FAILURE);
+}

@@ -52,7 +52,7 @@ void sub(stack_t **top_pointer, unsigned int argument)
 
 /**
  * _div - divides the second top element of the stack by the top
- *	 element of the stack.
+ *	  element of the stack.
  * @top_pointer: The address of the global variable global.top.
  * @argument: Unused.
  *
@@ -69,4 +69,23 @@ void _div(stack_t **top_pointer, unsigned int argument)
 	quotient = ((*top_pointer)->next->n) / ((*top_pointer)->n);
 	pop(top_pointer, argument);
 	(*top_pointer)->n = quotient;
+}
+
+/**
+ * _mul - multiplies the second top element of the stack with the top
+ *	  element of the stack.
+ * @top_pointer: The address of the global variable global.top.
+ * @argument: Unused.
+ *
+ * Return: Nothing(void).
+ */
+void _mul(stack_t **top_pointer, unsigned int argument)
+{
+	int multiple;
+
+	if ((!(*top_pointer)) || (!((*top_pointer)->next)))
+		handle_insufficient_mul_error();
+	multiple = ((*top_pointer)->next->n) * ((*top_pointer)->n);
+	pop(top_pointer, argument);
+	(*top_pointer)->n = multiple;
 }
