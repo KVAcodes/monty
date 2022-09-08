@@ -72,7 +72,8 @@ unsigned int identify_opcode_argument(instruction_t *map, char *buffer)
 		ptr = strstr(buffer, map[count].opcode);
 		if (ptr)
 		{
-			if (strstr("pallpintpopswapaddnopsub", map[count].opcode))
+			if (strstr("pallpintpopswapaddnopsubdiv",
+						map[count].opcode))
 				return (0);
 			break;
 		}

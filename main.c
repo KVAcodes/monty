@@ -16,10 +16,9 @@ int main(int argc, char **argv)
 	func_pointer opcode;
 	unsigned int argument;
 
-	instruction_t map_to[] = {{"push", push}, {"pall", pall},
-				  {"pint", pint}, {"pop", pop},
-				  {"swap", swap}, {"add", add},
-				  {"nop", nop}, {"sub", sub},
+	instruction_t map_to[] = {{"push", push}, {"pall", pall}, {"pint", pint},
+				  {"pop", pop}, {"swap", swap}, {"add", add},
+				  {"nop", nop}, {"sub", sub}, {"div", div},
 				  {NULL, NULL}};
 	if (argc != 2)
 		handle_argc_error();

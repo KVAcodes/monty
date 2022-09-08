@@ -73,6 +73,7 @@ void swap(stack_t **top_pointer, unsigned int argument);
 void add(stack_t **top_pointer, unsigned int argument);
 void nop(stack_t **top_pointer, unsigned int argument);
 void sub(stack_t **top_pointer, unsigned int argument);
+void div(stack_t **top_pointer, unsigned int argument);
 
 /* Function from free_stack.c */
 void free_stack(void);
@@ -92,5 +93,7 @@ void handle_insufficient_add_error(void);
 void handle_insufficient_sub_error(void);
 
 /* Functions from error_functions_3.c */
+void handle_insufficient_div_error(void);
+void handle_topofstackis0_div_error(void);
 
 #endif /* MONTY_H */

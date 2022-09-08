@@ -43,10 +43,30 @@ void sub(stack_t **top_pointer, unsigned int argument)
 {
 	int difference;
 
-	UNUSED(argument);
 	if ((!(*top_pointer)) || (!((*top_pointer)->next)))
 		handle_insufficient_sub_error();
 	difference = ((*top_pointer)->next->n) - ((*top_pointer)->n);
 	pop(top_pointer, argument);
 	(*top_pointer)->n = difference;
+}
+
+/**
+ * div - divides the second top element of the stack by the top
+ *	 element of the stack.
+ * @top_pointer: The address of the global variable global.top.
+ * @argument: Unused.
+ *
+ * Return: Nothing(void)
+ */
+void div(stack_t **top_pointer, unsigned int argument)
+{
+	int quotient;
+
+	if ((!(*top_pointer)) || (!((*top_pointer)->next)))
+		handle_insufficient_div_error();
+	if ((*top_pointer)->n == 0)
+		handle_topofstackis0_div_error();
+	quotient = ((*top_pointer)->next->n) / ((*top_pointer)->n);
+	pop(top_pointer, argument);
+	(*top_pointer)->n = quotient;
 }
