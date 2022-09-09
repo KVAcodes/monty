@@ -57,3 +57,28 @@ void pstr(stack_t **top_pointer, unsigned int argument)
 	}
 	putchar('\n');
 }
+
+/**
+ * rotl - Rotates the stack to the top
+ * @top_pointer: The address of the global variable global.top.
+ * @argument: Unused.
+ *
+ * Return: Nothin(void).
+ */
+void rotl(stack_t **top_pointer, unsigned int argument)
+{
+	stack_t *tmp, *ptr;
+
+	UNUSED(argument);
+	if (!(*top_pointer) || !((*top_pointer)->next))
+		return;
+	tmp = (*top_pointer)->next;
+	ptr = *top_pointer;
+
+	while (ptr->next)
+		ptr = ptr->next;
+	ptr->next = *top_pointer;
+	(*top_pointer)->prev = ptr;
+	(*top_pointer)->next = NULL;
+	*top_pointer = tmp;
+}

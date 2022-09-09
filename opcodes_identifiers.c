@@ -64,16 +64,16 @@ CDEFGHIJKLMNOPQRSTUVWXYZ[]^_`abcdefghijklmnopqrstuvwxyz{|}~'";
 unsigned int identify_opcode_argument(instruction_t *map, char *buffer)
 {
 	unsigned int count;
-	char *ptr, *tmp = NULL;
+	char *ptr, *tmp = NULL, *opcodes_list = NULL;
 
+	opcodes_list = "pallpintpopswapaddnopsubdivmulmodpcharpstrrotl";
 	count = 0;
 	while (map[count].opcode)
 	{
 		ptr = strstr(buffer, map[count].opcode);
 		if (ptr)
 		{
-			if (strstr("pallpintpopswapaddnopsubdivmulmodpcharpstr",
-						map[count].opcode))
+			if (strstr(opcodes_list, map[count].opcode))
 				return (0);
 			break;
 		}

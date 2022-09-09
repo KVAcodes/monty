@@ -81,6 +81,7 @@ void _mul(stack_t **top_pointer, unsigned int argument);
 void _mod(stack_t **top_pointer, unsigned int argument);
 void pchar(stack_t **top_pointer, unsigned int argument);
 void pstr(stack_t **top_pointer, unsigned int argument);
+void rotl(stack_t **top_pointer, unsigned int argument);
 
 /* Function from free_stack.c */
 void free_stack(void);
