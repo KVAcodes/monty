@@ -17,14 +17,23 @@ void push(stack_t **top_pointer, unsigned int number)
 	new_node->next = NULL;
 	new_node->n = number;
 
-	if (!(*top_pointer))
+	if (!(*top_pointer) && !(global.tail))
 	{
-		*top_pointer = new_node;
+		global.tail = *top_pointer = new_node;
 		return;
 	}
-	new_node->next = *top_pointer;
-	(*top_pointer)->prev = new_node;
-	*top_pointer = new_node;
+	if (global.mode == LIFO)
+	{
+		new_node->next = *top_pointer;
+		(*top_pointer)->prev = new_node;
+		*top_pointer = new_node;
+	}
+	else if (global.mode == FIFO)
+	{
+		global.tail->next = new_node;
+		new_node->prev = global.tail;
+		global.tail = new_node;
+	}
 }
 
 /**

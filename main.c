@@ -1,6 +1,6 @@
 #include "monty.h"
 
-global_t global = {NULL, 1, NULL};
+global_t global = {NULL, 1, NULL, NULL, LIFO};
 
 /**
  * main - The main function for the Monty Interpreter program.
@@ -21,7 +21,7 @@ int main(int argc, char **argv)
 				  {"nop", nop}, {"sub", sub}, {"div", _div},
 				  {"mul", _mul}, {"mod", _mod}, {"pchar", pchar},
 				  {"pstr", pstr}, {"rotl", rotl}, {"rotr", rotr},
-				  {NULL, NULL}};
+				  {"stack", stack}, {"queue", queue}, {NULL, NULL}};
 	if (argc != 2)
 		handle_argc_error();
 	global.monty_file = fopen(argv[1], "r");

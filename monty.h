@@ -7,6 +7,8 @@
 #include <unistd.h>
 
 #define UNUSED(x) (void)(x)
+#define LIFO 0
+#define FIFO 1
 
 /**
  * struct stack_s - doubly linked list representation of a stack (or queue)
@@ -51,6 +53,8 @@ typedef struct global
 	FILE *monty_file;
 	unsigned int line_count;
 	stack_t *top;
+	stack_t *tail;
+	unsigned int mode;
 } global_t;
 
 extern global_t global;
@@ -83,6 +87,10 @@ void pchar(stack_t **top_pointer, unsigned int argument);
 void pstr(stack_t **top_pointer, unsigned int argument);
 void rotl(stack_t **top_pointer, unsigned int argument);
 void rotr(stack_t **top_pointer, unsigned int argument);
+
+/* Functions from opcode_functions_4.c */
+void stack(stack_t **top_pointer, unsigned int number);
+void queue(stack_t **top_pointer, unsigned int number);
 
 /* Function from free_stack.c */
 void free_stack(void);
