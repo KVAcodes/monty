@@ -66,7 +66,7 @@ unsigned int identify_opcode_argument(instruction_t *map, char *buffer)
 	unsigned int count;
 	char *ptr, *tmp = NULL, *opcodes_list = NULL;
 
-	opcodes_list = "pallpintpopswapaddnopsubdivmulmodpcharpstrrotl";
+	opcodes_list = "pallpintpopswapaddnopsubdivmulmodpcharpstrrotlrotr";
 	count = 0;
 	while (map[count].opcode)
 	{

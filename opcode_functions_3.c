@@ -63,7 +63,7 @@ void pstr(stack_t **top_pointer, unsigned int argument)
  * @top_pointer: The address of the global variable global.top.
  * @argument: Unused.
  *
- * Return: Nothin(void).
+ * Return: Nothing(void).
  */
 void rotl(stack_t **top_pointer, unsigned int argument)
 {
@@ -80,5 +80,29 @@ void rotl(stack_t **top_pointer, unsigned int argument)
 	ptr->next = *top_pointer;
 	(*top_pointer)->prev = ptr;
 	(*top_pointer)->next = NULL;
+	*top_pointer = tmp;
+}
+/**
+ * rotr - Rotates the stack to the bottom
+ * @top_pointer: The address of the global variable global.top.
+ * @argument: Unused.
+ *
+ * Return: Nothing(void).
+ */
+void rotr(stack_t **top_pointer, unsigned int argument)
+{
+	stack_t *tmp, *ptr;
+
+	UNUSED(argument);
+	if (!(*top_pointer) || !((*top_pointer)->next))
+		return;
+	ptr = *top_pointer;
+	while (ptr->next->next)
+		ptr = ptr->next;
+	tmp = ptr->next;
+	tmp->prev = NULL;
+	tmp->next = *top_pointer;
+	(*top_pointer)->prev = tmp;
+	ptr->next = NULL;
 	*top_pointer = tmp;
 }

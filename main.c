@@ -20,7 +20,8 @@ int main(int argc, char **argv)
 				  {"pop", pop}, {"swap", swap}, {"add", add},
 				  {"nop", nop}, {"sub", sub}, {"div", _div},
 				  {"mul", _mul}, {"mod", _mod}, {"pchar", pchar},
-				  {"pstr", pstr}, {"rotl", rotl}, {NULL, NULL}};
+				  {"pstr", pstr}, {"rotl", rotl}, {"rotr", rotr},
+				  {NULL, NULL}};
 	if (argc != 2)
 		handle_argc_error();
 	global.monty_file = fopen(argv[1], "r");
